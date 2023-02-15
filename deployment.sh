@@ -4,7 +4,7 @@ if [ $(git --version) - eq 0 ]
 then
     git clone https://github.com/vim96/auditd-logwatcher.git
 else
-    read -p "Git is not installed, please specify FULL PATH to the python code (e.g. /root/scripts/code.py): " python_code_path
+    read -p "Please specify FULL PATH to the python code (e.g. /root/scripts/code.py): " python_code_path
 fi
 
 sed -i 's/log_file = \/var\/log\/audit\/audit.log/log_file = \/var\/log\/audit\/audit-raw.log/' /etc/audit/auditd.conf
