@@ -1,14 +1,22 @@
 #!/bin/bash
 
-if [ $(git --version) - eq 0 ]
+git --version &> /dev/null
+if [ "$?" -eq 0 ]
 then
     git clone https://github.com/vim96/auditd-logwatcher.git
+    cd auditd-logwatcher/
+    python3 --version &> /dev/null
+    if [ "$?" -eq 0 ]
+    then
+        python_code_path=$(ls -d "$PWD/auditd_logwatcher-py3.py")
+        python_version="/usr/bin/python3"
+    else
+        python_code_path=$(ls -d "$PWD/auditd_logwatcher-py2.py")
+        python_version="/usr/bin/python"
+    fi
 else
     read -p "Please specify FULL PATH to the python code (e.g. /root/scripts/code.py): " python_code_path
 fi
-
-sed -i 's/log_file = \/var\/log\/audit\/audit.log/log_file = \/var\/log\/audit\/audit-raw.log/' /etc/audit/auditd.conf
-/sbin/service auditd restart
 
 cat >> /etc/systemd/system/auditd-watchlog.service <<EOF
 [Unit]
@@ -16,12 +24,16 @@ Description=Watch auditd raw logs for specific strings and replace them in order
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python $python_code_path
+ExecStart=$python_version $python_code_path
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
 EOF
+
+sed -i 's/log_file = \/var\/log\/audit\/audit.log/log_file = \/var\/log\/audit\/audit-raw.log/' /etc/audit/auditd.conf
+/sbin/service auditd restart
+
 systemctl daemon-reload
 systemctl enable --now auditd-watchlog.service
 

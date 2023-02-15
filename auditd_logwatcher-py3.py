@@ -1,11 +1,11 @@
 import time
 
-log_file = "/var/log/audit/audit.log"
+log_file = "/var/log/audit/audit-raw.log"
 string1_to_watch = "tty=(none)"
 string2_to_watch = "res=1"
 replacement_string = ""
 
-with open (log_file, "r") as file, open("/root/modified.log", "w") as file_modified:
+with open (log_file, "r") as file, open("/var/log/audit/audit.log", "w") as file_modified:
     while True:
         for line in file:
             if string1_to_watch in line and string2_to_watch in line:
