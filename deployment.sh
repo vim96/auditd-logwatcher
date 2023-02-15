@@ -1,18 +1,24 @@
 #!/bin/bash
 
+python3 --version &> /dev/null
+if [ "$?" -eq 0 ]
+then
+    python_version="/usr/bin/python3"
+else
+    python_version="/usr/bin/python"
+fi
+
 git --version &> /dev/null
 if [ "$?" -eq 0 ]
 then
     git clone https://github.com/vim96/auditd-logwatcher.git
     cd auditd-logwatcher/
-    python3 --version &> /dev/null
-    if [ "$?" -eq 0 ]
+    if [ "$python_version" = "/usr/bin/python3" ]
     then
         python_code_path=$(ls -d "$PWD/auditd_logwatcher-py3.py")
-        python_version="/usr/bin/python3"
-    else
+    elif [ "$python_version" = "/usr/bin/python" ]
+    then
         python_code_path=$(ls -d "$PWD/auditd_logwatcher-py2.py")
-        python_version="/usr/bin/python"
     fi
 else
     read -p "Please specify FULL PATH to the python code (e.g. /root/scripts/code.py): " python_code_path
