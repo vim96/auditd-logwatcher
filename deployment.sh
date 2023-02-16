@@ -12,7 +12,7 @@ git --version &> /dev/null
 if [ "$?" -eq 0 ]
 then
     git clone https://github.com/vim96/auditd-logwatcher.git
-    cd auditd-logwatcher/
+    cd auditd-logwatcher/app/
     if [ "$python_version" = "/usr/bin/python3" ]
     then
         python_code_path=$(ls -d "$PWD/auditd_logwatcher-py3.py")
