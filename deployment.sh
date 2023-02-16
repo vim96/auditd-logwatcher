@@ -27,11 +27,14 @@ fi
 cat >> /etc/systemd/system/auditd-watchlog.service <<EOF
 [Unit]
 Description=Watch auditd raw logs for specific strings and replace them in order to avoid SEM triggers
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
 Type=simple
 ExecStart=$python_version $python_code_path
-Restart=always
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=multi-user.target
