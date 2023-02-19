@@ -39,7 +39,7 @@
     3.2 In case you use Python Version 2:
 
     ```bash
-    curl -o auditd_logwatcher-py2.py https://github.com/vim96/auditd-logwatcher/blob/staging/app/auditd_logwatcher-py2.py
+    curl -o auditd_logwatcher-py2.py https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py2.py
     ```
 
 4. Execute *`deployment.sh`*:
