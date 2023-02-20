@@ -31,12 +31,12 @@
     python3 --version || python --version
     ```
 
-    3.1 In case you use Python Version 3 or above:
+    3.1 In case you use Python Version 3 or above, download:
     
     ```bash
     curl -o auditd_logwatcher-py3.py https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py
     ```
-    3.2 In case you use Python Version 2:
+    3.2 In case you use Python Version 2, download:
 
     ```bash
     curl -o auditd_logwatcher-py2.py https://github.com/vim96/auditd-logwatcher/blob/staging/app/auditd_logwatcher-py2.py
