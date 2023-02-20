@@ -32,6 +32,18 @@ else
     read -p "$(echo -e $Yellow"Please specify FULL PATH to the python code (e.g. /root/scripts/auditd_logwatcher-py3.py): "$NC)" python_code_path
 fi
 
+if [ $(systemctl list-units --full -all | grep -i auditd-logwatch.service | wc -l) -eq 1 ]
+then
+    systemctl disable --now auditd-logwatch.service
+elif [ $(systemctl list-units --full -all | grep -i auditd-logwatch.service | wc -l) -gt 1 ]
+then
+    echo -e "${Red}More than one systemd auditd-logwatch.service detected, please investigate!${NC}"
+    exit 1
+elif [ $(systemctl list-units --full -all | grep -i auditd-logwatch.service | wc -l) -eq 0 ]
+then
+    echo -e "${Green}Adding auditd-logwatch.service to systemd services!${NC}"
+fi
+
 cat > /etc/systemd/system/auditd-logwatch.service <<EOF
 [Unit]
 Description=Watch auditd raw logs for specific strings and replace them in order to avoid SEM triggers
