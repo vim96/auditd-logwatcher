@@ -19,6 +19,10 @@ fi
 git --version &> /dev/null
 if [ "$?" -eq 0 ]
 then
+    if [ -d "auditd-logwatcher" ]
+    then
+        rm -rf auditd-logwatcher
+    fi
     git clone https://github.com/vim96/auditd-logwatcher.git
     cd auditd-logwatcher/app/
     if [ "$python_version" = "/usr/bin/python3" ]
