@@ -33,7 +33,14 @@ then
         python_code_path=$(ls -d "$PWD/auditd_logwatcher-py2.py")
     fi
 else
-    read -p "$(echo -e $Yellow"Please specify FULL PATH to the python code (e.g. /root/scripts/auditd_logwatcher-py3.py): "$NC)" python_code_path
+    read -p "$(echo -e $Yellow"Please specify FULL PATH where you want to store the Pytho code (e.g. /root/scripts/code.py) "$NC)" python_code_path
+    if [ "$python_version" = "/usr/bin/python3" ]
+    then
+        curl -fSSL -o $python_code_path https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py
+    elif [ "$python_version" = "/usr/bin/python" ]
+    then
+        curl -fSSL -o $python_code_path https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py
+    fi
 fi
 
 if [ $(systemctl list-units --full -all | grep -i auditd-logwatch.service | wc -l) -eq 1 ]
