@@ -39,7 +39,7 @@ else
         curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py -o $python_code_path
     elif [ "$python_version" = "/usr/bin/python" ]
     then
-        curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py -o $python_code_path
+        curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py2.py -o $python_code_path
     fi
 fi
 
