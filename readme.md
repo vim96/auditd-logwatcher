@@ -10,6 +10,8 @@
 
     bash <(curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/deployment.sh)
 
+### In about a minute you'll have a working solution
+
 #
 ### **`Manual way:`**
 
