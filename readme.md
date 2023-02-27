@@ -8,9 +8,7 @@
 #
 ### **`Automatic way (requires git to be installed):`**
 
-    ```
     bash <(curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/deployment.sh)
-    ```
 
 #
 ### **`Manual way:`**
