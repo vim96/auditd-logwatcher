@@ -15,37 +15,10 @@
 #
 ### **`Manual way:`**
 
-1. Download *`deployment.sh`*:
+1. Execute *`deployment.sh`*:
 
     ```bash
-    curl -o deployment.sh https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/deployment.sh
+    bash <(curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/deployment.sh)
     ```
 
-2. Make the script executable:
-    ```bash
-    chmod +x deployment.sh
-    ```
-3. Identify the **Python version** installed on your system:
-
-    ```bash
-    python3 --version || python --version
-    ```
-
-    3.1 In case you use Python Version 3 or above, download:
-    
-    ```bash
-    curl -o auditd_logwatcher-py3.py https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py
-    ```
-    3.2 In case you use Python Version 2, download:
-
-    ```bash
-    curl -o auditd_logwatcher-py2.py https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py2.py
-    ```
-
-4. Execute *`deployment.sh`*:
-
-    ```bash
-    bash deployment.sh
-    ```
-
-5. It will ask you for the path to the Python code
+5. It will ask you for the path where you'd like to store the Python code
