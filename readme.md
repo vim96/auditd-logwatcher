@@ -1,7 +1,7 @@
 ## **NOTE:**
 ## DO NOT DELETE THE PYTHON CODES AFTER THE INSTALLATION, THEY ARE USED BY SYSTEMD auditd-logwatch systemd service
 
-### If you want to store the codes in certain directory, please do that before running `deployment.sh`
+### If you want to store the codes in certain directory, please create the directory before running `deployment.sh`
 #
 ## **Installation instructions**:
 
