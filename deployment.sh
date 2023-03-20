@@ -36,10 +36,10 @@ else
     read -p "$(echo -e $Yellow"Please specify FULL PATH where you want to store the python code (e.g. /root/scripts/auditd_logwatcher-py3.py): "$NC)" python_code_path
     if [ "$python_version" = "/usr/bin/python3" ]
     then
-        curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py3.py -o $python_code_path
+        curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/master/app/auditd_logwatcher-py3.py -o $python_code_path
     elif [ "$python_version" = "/usr/bin/python" ]
     then
-        curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/staging/app/auditd_logwatcher-py2.py -o $python_code_path
+        curl https://raw.githubusercontent.com/vim96/auditd-logwatcher/master/app/auditd_logwatcher-py2.py -o $python_code_path
     fi
 fi
 
